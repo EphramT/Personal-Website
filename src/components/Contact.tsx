@@ -12,7 +12,6 @@ const IconLinkedIn = () => (
   </svg>
 )
 
-
 export default function Contact() {
   const headingRef = useReveal<HTMLHeadingElement>()
   const innerRef   = useReveal<HTMLDivElement>(80)

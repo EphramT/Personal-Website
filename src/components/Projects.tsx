@@ -96,11 +96,9 @@ const IconExternal = () => (
   </svg>
 )
 
-function ProjectCard({ project, delay }: { project: Project; delay: number }) {
-  const ref = useReveal<HTMLElement>(delay)
-
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <article ref={ref} className={`project-card${project.featured ? ' project-card-featured' : ''}`}>
+    <article className={`project-card${project.featured ? ' project-card-featured' : ''}`}>
       {/* Image area */}
       <div className="project-image" style={{ background: project.imageBg }}>
         <div className="project-image-inner" />
@@ -160,12 +158,13 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
 }
 
 export default function Projects() {
-  const headingRef = useReveal<HTMLDivElement>()
+  const blockRef = useReveal<HTMLDivElement>()
 
   return (
     <section id="projects">
       <div className="container">
-        <div ref={headingRef} className="projects-header">
+        <div ref={blockRef} className="projects-block">
+        <div className="projects-header">
           <p className="projects-label"><span className="section-num">02.</span> Projects</p>
           <h2 className="projects-heading">
             Real projects,<br />real problem solving.
@@ -198,9 +197,10 @@ export default function Projects() {
         </div>
 
         <div className="projects-grid">
-          {PROJECTS.map((project, i) => (
-            <ProjectCard key={project.title} project={project} delay={i * 100} />
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
+        </div>
         </div>
       </div>
     </section>

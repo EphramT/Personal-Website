@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { GraduationCap, ChevronDown } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 
 interface Skill {
@@ -5,6 +7,20 @@ interface Skill {
   desc: string
   items: string[]
   icon: React.ReactNode
+}
+
+interface Course {
+  name: string
+  description: string
+}
+
+interface Education {
+  institution: string
+  degree: string
+  field: string
+  period: string
+  notes?: string[]
+  courses?: Course[]
 }
 
 const SKILLS: Skill[] = [
@@ -31,8 +47,8 @@ const SKILLS: Skill[] = [
   },
   {
     title: 'Database & Cloud',
-    desc: 'Working with relational and NoSQL databases and deploying on modern cloud infrastructure.',
-    items: ['PostgreSQL / MySQL', 'MongoDB / Redis', 'AWS / GCP', 'Docker / CI/CD'],
+    desc: 'Working with relational and SQL databases and deploying on modern cloud infrastructure.',
+    items: ['SQL', 'API Development', 'AWS', 'Docker'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -40,6 +56,56 @@ const SKILLS: Skill[] = [
         <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
       </svg>
     ),
+  },
+  {
+    title: 'Languages',
+    desc: 'Programming languages I work with across different domains and problem spaces.',
+    items: ['JavaScript / TypeScript', 'Python', 'C / C++', 'SQL', 'Java', 'Bash'],
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Certifications',
+    desc: 'Industry certifications that validate my skills and knowledge across key platforms.',
+    items: ['Add your certifications here'],
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+        <circle cx="12" cy="8" r="6" />
+        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+      </svg>
+    ),
+  },
+]
+
+const EDUCATION: Education[] = [
+  {
+    institution: 'James Madison University',
+    degree: "Bachelor's of Science",
+    field: 'Computer Science, Minor in Mathematics and Computer Information Systems',
+    period: '2022 – 2026',
+    notes: ["Dean's List"],
+    courses: [
+      {
+        name: 'Data Structures & Algorithms',
+        description: 'Add a description of what you learned in this course.',
+      },
+      {
+        name: 'Software Engineering',
+        description: 'Add a description of what you learned in this course.',
+      },
+      {
+        name: 'Computer Systems I & II',
+        description: 'Add a description of what you learned in this course.',
+      },
+      {
+        name: 'Operating Systems',
+        description: 'Add a description of what you learned in this course.',
+      },
+    ],
   },
 ]
 
@@ -59,8 +125,64 @@ function SkillCard({ skill, delay }: { skill: Skill; delay: number }) {
   )
 }
 
+function CourseAccordion({ courses }: { courses: Course[] }) {
+  const [active, setActive] = useState<number | null>(null)
+
+  const toggle = (i: number) => setActive((prev) => (prev === i ? null : i))
+
+  return (
+    <div className="course-accordion">
+      {courses.map((course, i) => (
+        <div key={course.name} className={`course-item${active === i ? ' course-item-open' : ''}`}>
+          <button className="course-tab" onClick={() => toggle(i)}>
+            <span>{course.name}</span>
+            <ChevronDown size={14} strokeWidth={2} className="course-chevron" />
+          </button>
+          <div className="course-panel">
+            <p>{course.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function EducationCard({ edu, delay }: { edu: Education; delay: number }) {
+  const ref = useReveal<HTMLDivElement>(delay)
+  return (
+    <div ref={ref} className="edu-card">
+      <div className="edu-left">
+        <div className="edu-icon">
+          <GraduationCap size={20} strokeWidth={1.5} />
+        </div>
+      </div>
+      <div className="edu-body">
+        <div className="edu-top">
+          <div>
+            <h4 className="edu-institution">{edu.institution}</h4>
+            <p className="edu-degree">{edu.degree}, {edu.field}</p>
+          </div>
+          <span className="edu-period">{edu.period}</span>
+        </div>
+        {edu.notes && (
+          <ul className="edu-notes">
+            {edu.notes.map((n) => <li key={n}>{n}</li>)}
+          </ul>
+        )}
+        {edu.courses && edu.courses.length > 0 && (
+          <div className="course-section">
+            <p className="course-section-label">Relevant Coursework</p>
+            <CourseAccordion courses={edu.courses} />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function Skills() {
   const titleRef = useReveal<HTMLHeadingElement>()
+  const eduRef   = useReveal<HTMLHeadingElement>(80)
 
   return (
     <section id="skills">
@@ -71,6 +193,13 @@ export default function Skills() {
         <div className="skills-grid">
           {SKILLS.map((skill, i) => (
             <SkillCard key={skill.title} skill={skill} delay={i * 80} />
+          ))}
+        </div>
+
+        <h3 ref={eduRef} className="subsection-title">Education</h3>
+        <div className="edu-list">
+          {EDUCATION.map((edu, i) => (
+            <EducationCard key={edu.institution} edu={edu} delay={100 + i * 80} />
           ))}
         </div>
       </div>
