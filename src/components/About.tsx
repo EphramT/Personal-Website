@@ -42,6 +42,7 @@ export default function About() {
                 <li key={t}>{t}</li>
               ))}
             </ul>
+
           </div>
 
           <div ref={imgRef} className="about-image-wrap">

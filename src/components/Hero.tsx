@@ -40,8 +40,19 @@ export default function Hero() {
               ))}
             </div>
             <div className="hero-card-divider" />
-            <div className="hero-card-status">
-              Available for work
+            <div className="hero-card-stats">
+              <div className="hero-card-stat">
+                <span className="hero-card-stat-label">GPA</span>
+                <span className="hero-card-stat-value">3.8</span>
+              </div>
+              <div className="hero-card-stat">
+                <span className="hero-card-stat-label">Graduation</span>
+                <span className="hero-card-stat-value">2026</span>
+              </div>
+              <div className="hero-card-stat">
+                <span className="hero-card-stat-label">Focus</span>
+                <span className="hero-card-stat-value">Full Stack</span>
+              </div>
             </div>
           </div>
 
