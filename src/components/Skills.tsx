@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GraduationCap, ChevronDown } from 'lucide-react'
+import { GraduationCap, Trophy, ChevronDown } from 'lucide-react'
 import { useReveal } from '../hooks/useReveal'
 
 interface Skill {
@@ -22,6 +22,38 @@ interface Education {
   notes?: string[]
   courses?: Course[]
 }
+
+interface Extra {
+  title: string
+  organization: string
+  period: string
+  description: string
+  tags?: string[]
+}
+
+const EXTRAS: Extra[] = [
+  {
+    title: 'Madison Make-A-Thon 1st Place',
+    organization: 'James Madison University Department of Computer Science and Gillams Center for Entrepreneurship, Sponsored by the Dead Meat Society',
+    period: '2026',
+    description: 'Describe what you built, what you won, or what you accomplished.',
+    tags: ['React', 'TypeScript'],
+  },
+  {
+    title: 'Add your extracurriculars here',
+    organization: 'Add the organization or club name here',
+    period: 'Add the time period here',
+    description: 'Add a description of your role, achievements, or what you did in this extracurricular activity.',
+    tags: ['Add relevant tags or technologies here'],
+  },
+  {
+    title: 'Add your extracurriculars here',
+    organization: 'Add the organization or club name here',
+    period: 'Add the time period here',
+    description: 'Add a description of your role, achievements, or what you did in this extracurricular activity.',
+    tags: ['Add relevant tags or technologies here'],
+  }
+]
 
 const SKILLS: Skill[] = [
   {
@@ -180,9 +212,40 @@ function EducationCard({ edu, delay }: { edu: Education; delay: number }) {
   )
 }
 
+function ExtraCard({ extra, delay }: { extra: Extra; delay: number }) {
+  const ref = useReveal<HTMLDivElement>(delay)
+  return (
+    <div ref={ref} className="extra-card">
+      <div className="extra-left">
+        <div className="edu-icon">
+          <Trophy size={20} strokeWidth={1.5} />
+        </div>
+      </div>
+      <div className="extra-body">
+        <div className="edu-top">
+          <div>
+            <h4 className="edu-institution">{extra.title}</h4>
+            <p className="edu-degree">{extra.organization}</p>
+          </div>
+          <span className="edu-period">{extra.period}</span>
+        </div>
+        <p className="extra-desc">{extra.description}</p>
+        {extra.tags && extra.tags.length > 0 && (
+          <div className="extra-tags">
+            {extra.tags.map((tag) => (
+              <span key={tag} className="extra-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function Skills() {
-  const titleRef = useReveal<HTMLHeadingElement>()
-  const eduRef   = useReveal<HTMLHeadingElement>(80)
+  const titleRef  = useReveal<HTMLHeadingElement>()
+  const eduRef    = useReveal<HTMLHeadingElement>(80)
+  const extraRef  = useReveal<HTMLHeadingElement>(80)
 
   return (
     <section id="skills">
@@ -200,6 +263,13 @@ export default function Skills() {
         <div className="edu-list">
           {EDUCATION.map((edu, i) => (
             <EducationCard key={edu.institution} edu={edu} delay={100 + i * 80} />
+          ))}
+        </div>
+
+        <h3 ref={extraRef} className="subsection-title">Extracurriculars</h3>
+        <div className="edu-list">
+          {EXTRAS.map((extra, i) => (
+            <ExtraCard key={extra.title} extra={extra} delay={100 + i * 80} />
           ))}
         </div>
       </div>

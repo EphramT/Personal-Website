@@ -1,10 +1,12 @@
+// Positioned relative to the hero card — left/right: calc(100% + Xpx) keeps
+// each badge touching the card edge regardless of how narrow the window gets.
 const FLOAT_TAGS = [
-  { label: 'React',       style: { top: '8%',  left: '10%' }, delay: '0s'    },
-  { label: 'TypeScript',  style: { top: '18%', right: '4%' }, delay: '0.3s'  },
-  { label: 'Python',      style: { top: '52%', right: '0%' }, delay: '0.6s'  },
-  { label: 'Node.js',     style: { bottom: '18%', left: '6%' }, delay: '0.9s' },
-  { label: 'AWS',         style: { bottom: '6%', right: '12%' }, delay: '1.2s' },
-  { label: 'Docker',      style: { top: '40%', left: '0%'  }, delay: '1.5s'  },
+  { label: 'React',      style: { top: '8%',   right: 'calc(100% + 10px)' }, delay: '0s'   },
+  { label: 'TypeScript', style: { top: '28%',  left:  'calc(100% + 10px)' }, delay: '0.3s' },
+  { label: 'Python',     style: { top: '48%',  right: 'calc(100% + 10px)' }, delay: '0.6s' },
+  { label: 'Node.js',    style: { top: '68%',  left:  'calc(100% + 10px)' }, delay: '0.9s' },
+  { label: 'AWS',        style: { bottom: '8%',  left:  'calc(100% + 10px)' }, delay: '1.2s' },
+  { label: 'Docker',     style: { bottom: '28%', right: 'calc(100% + 10px)' }, delay: '1.5s' },
 ]
 
 export default function Hero() {
@@ -54,18 +56,18 @@ export default function Hero() {
                 <span className="hero-card-stat-value">Full Stack</span>
               </div>
             </div>
-          </div>
 
-          {/* Floating badges */}
-          {FLOAT_TAGS.map(({ label, style, delay }) => (
-            <span
-              key={label}
-              className="hero-float-tag"
-              style={{ ...style, animationDelay: delay } as React.CSSProperties}
-            >
-              {label}
-            </span>
-          ))}
+            {/* Floating badges — anchored to card edges */}
+            {FLOAT_TAGS.map(({ label, style, delay }) => (
+              <span
+                key={label}
+                className="hero-float-tag"
+                style={{ ...style, animationDelay: delay } as React.CSSProperties}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -165,13 +165,9 @@ export default function Projects() {
       <div className="container">
         <div ref={blockRef} className="projects-block">
         <div className="projects-header">
-          <p className="projects-label"><span className="section-num">02.</span> Projects</p>
-          <h2 className="projects-heading">
-            Real projects,<br />real problem solving.
+          <h2 className="section-title">
+            <span className="section-num">02.</span> Projects
           </h2>
-          <p className="projects-subheading">
-            A selection of things I've built — from prototypes to production.
-          </p>
           <a
             href="https://github.com/EphramT"
             target="_blank"

@@ -1007,16 +1007,70 @@ ul {
   padding: 10px 14px 14px;
 }
 
+/* ─── Extracurriculars ─── */
+.extra-card {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.extra-card:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  transform: translateX(4px);
+}
+
+.extra-left {
+  flex-shrink: 0;
+}
+
+.extra-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.extra-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.extra-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.extra-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
 /* ─── Projects ─── */
 #projects {
   padding: var(--section-gap) 0;
 }
 
 .projects-header {
-  margin-bottom: 48px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.projects-header .section-title {
+  flex: 1;
+  margin-bottom: 0;
 }
 
 .projects-label {
