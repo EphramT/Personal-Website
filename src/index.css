@@ -79,7 +79,7 @@ ul {
 }
 
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--text-dark); border-radius: 3px; }
 

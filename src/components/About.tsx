@@ -3,9 +3,9 @@ import { useReveal } from '../hooks/useReveal'
 const TECH = [
   'JavaScript / TypeScript',
   'React / Next.js',
-  'Node.js',
+  'Java',
   'Python',
-  'PostgreSQL',
+  'SQL',
   'Docker / AWS',
 ]
 

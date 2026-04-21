@@ -39,20 +39,14 @@ const EXTRAS: Extra[] = [
     description: 'Describe what you built, what you won, or what you accomplished.',
     tags: ['React', 'TypeScript'],
   },
-  {
-    title: 'Add your extracurriculars here',
-    organization: 'Add the organization or club name here',
-    period: 'Add the time period here',
-    description: 'Add a description of your role, achievements, or what you did in this extracurricular activity.',
-    tags: ['Add relevant tags or technologies here'],
-  },
-  {
-    title: 'Add your extracurriculars here',
-    organization: 'Add the organization or club name here',
-    period: 'Add the time period here',
-    description: 'Add a description of your role, achievements, or what you did in this extracurricular activity.',
-    tags: ['Add relevant tags or technologies here'],
-  }
+  // {
+  //   title: 'AWS Cloud Practitioner Certification',
+  //   organization: 'AWS',
+  //   period: 'March 2025 - TODO',
+  //   description: 'Completed my first AWS certification of Cloud Practitioner.',
+  //   tags: ['AWS', 'Cloud Computing'],
+  // },
+
 ]
 
 const SKILLS: Skill[] = [
@@ -118,7 +112,7 @@ const EDUCATION: Education[] = [
     institution: 'James Madison University',
     degree: "Bachelor's of Science",
     field: 'Computer Science, Minor in Mathematics and Computer Information Systems',
-    period: '2022 – 2026',
+    period: '2024 – 2028',
     notes: ["Dean's List"],
     courses: [
       {

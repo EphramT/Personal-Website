@@ -14,14 +14,14 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: 'This Portfolio',
-    tags: ['Current', 'Full Stack'],
+    title: 'Halo Network',
+    tags: ['Madison Make-A-Thon', 'Full Stack', 'Prototype'],
     desc: 'The site you\'re looking at right now, a personal portfolio built to showcase my work, skills, and experience with a clean, modern aesthetic.',
     highlights: [
       'Built with React, TypeScript, and Vite',
-      'Fully responsive with a floating island nav',
-      'Scroll-reveal animations via IntersectionObserver',
-      'Custom CSS design system with theme variables',
+      'Full Demo online on Vercel',
+      'Simple and easy to follow UI',
+      'Physical prototype also built',
     ],
     tech: ['React', 'TypeScript', 'Vite', 'CSS'],
     github: 'https://github.com/EphramT',
@@ -29,36 +29,36 @@ const PROJECTS: Project[] = [
     imageBg: 'linear-gradient(135deg, #0a0f1e 0%, #0d1b3e 50%, #0f2460 100%)',
     featured: true,
   },
-  {
-    title: 'Project Alpha',
-    tags: ['Full Stack', 'Prototype'],
-    desc: 'A full-stack web application that streamlines team collaboration with real-time updates and role-based access control.',
-    highlights: [
-      'Real-time collaboration via WebSockets',
-      'Role-based access control with JWT auth',
-      'Optimistic UI updates for a snappy experience',
-      'Deployed on AWS with CI/CD pipeline',
-    ],
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-    github: 'https://github.com/EphramT',
-    live: '#',
-    imageBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-  },
-  {
-    title: 'CLI Toolkit',
-    tags: ['Developer Tool', 'Open Source'],
-    desc: 'A developer productivity tool that automates repetitive tasks through a composable CLI interface with plugin support.',
-    highlights: [
-      'Composable plugin architecture',
-      'Custom template scaffolding engine',
-      'Integrates with Git, npm, and Docker',
-      'Interactive prompts with zero config',
-    ],
-    tech: ['Node.js', 'TypeScript', 'Commander.js'],
-    github: 'https://github.com/EphramT',
-    live: '#',
-    imageBg: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f2937 100%)',
-  },
+  // {
+  //   title: 'Project Alpha',
+  //   tags: ['Full Stack', 'Prototype'],
+  //   desc: 'A full-stack web application that streamlines team collaboration with real-time updates and role-based access control.',
+  //   highlights: [
+  //     'Real-time collaboration via WebSockets',
+  //     'Role-based access control with JWT auth',
+  //     'Optimistic UI updates for a snappy experience',
+  //     'Deployed on AWS with CI/CD pipeline',
+  //   ],
+  //   tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
+  //   github: 'https://github.com/EphramT',
+  //   live: '#',
+  //   imageBg: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+  // },
+  // {
+  //   title: 'This Portfolio',
+  //   tags: ['Developer Tool', 'Open Source'],
+  //   desc: 'A developer productivity tool that automates repetitive tasks through a composable CLI interface with plugin support.',
+  //   highlights: [
+  //     'Composable plugin architecture',
+  //     'Custom template scaffolding engine',
+  //     'Integrates with Git, npm, and Docker',
+  //     'Interactive prompts with zero config',
+  //   ],
+  //   tech: ['Node.js', 'TypeScript', 'Commander.js'],
+  //   github: 'https://github.com/EphramT',
+  //   live: '#',
+  //   imageBg: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f2937 100%)',
+  // },
 ]
 
 const IconGitHub = () => (

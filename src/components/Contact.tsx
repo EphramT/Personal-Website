@@ -25,7 +25,7 @@ export default function Contact() {
         <div ref={innerRef} className="contact-inner">
           <p className="contact-desc">
             I'm currently open to new opportunities. Whether you have a question,
-            a project idea, or just want to say hello — my inbox is always open.
+            a project idea, or just want to say hello, my inbox is always open.
           </p>
           <a
             href="mailto:ephramthompson@gmail.com"
